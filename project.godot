@@ -18,6 +18,17 @@ _global_script_class_icons={
 config/name="Nuggie-collector"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="platform"
+2d_physics/layer_3="ground_hurt"
+2d_physics/layer_4="fallzone"
+2d_physics/layer_5="item"
+2d_physics/layer_6="enemy"
+2d_physics/layer_7="player_bullet"
+2d_physics/layer_8="enemy_bullet"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
