@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/world-tiles/black_square.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PoolVector2Array( 64, 64, 0, 64, 0, 16, 64, 16 )
 
 [resource]
 0/name = "black_square.png 0"
