@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/maps/dark_solid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/background/grey_background.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/PlayerGroundHalo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/enemies/slime/EnemySlime.tscn" type="PackedScene" id=5]
 
 [node name="Level_001" type="Node2D"]
 
@@ -22,7 +23,7 @@ tile_set = ExtResource( 1 )
 collision_layer = 2
 collision_mask = 17
 format = 1
-tile_data = PoolIntArray( 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0 )
+tile_data = PoolIntArray( 65535, 0, 0, 26, 0, 0, 131071, 0, 0, 65562, 0, 0, 196607, 0, 0, 131098, 0, 0, 262143, 0, 0, 196634, 0, 0, 327679, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262170, 0, 0, 393215, 0, 0, 327706, 0, 0, 458751, 0, 0, 393242, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0 )
 
 [node name="PlayerGroundHalo" parent="." instance=ExtResource( 4 )]
 position = Vector2( 424, 352 )
@@ -36,3 +37,16 @@ scale = Vector2( 0.25, 0.25 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 4.0
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemySlime" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1256, 184 )
+
+[node name="EnemySlime2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1408, 176 )
+detects_cliffs = false
+
+[node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 504, 352 )
+detects_cliffs = false
