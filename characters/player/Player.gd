@@ -41,8 +41,7 @@ func _halo_location():
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	_halo_location()
 
 	if Input.is_action_pressed("move_right"):
