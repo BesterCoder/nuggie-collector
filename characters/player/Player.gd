@@ -8,8 +8,27 @@ const TILT_DEGREE = 5.0
 
 enum move_dir {MOVE_LEFT = -1, MOVE_RIGHT = 1, MOVE_NONE = 0}
 
+var current_direction = move_dir.MOVE_RIGHT
+var current_weapon = null
 var velocity = Vector2(0, 0)
 var player_halo = null
+
+# Rotate and and the weapon location
+# based on mouse location and move direction
+func _weapon_pos():
+	# Rotate weapon
+	var mouse_pos = get_global_mouse_position();
+	var direction = sign(mouse_pos.x - current_weapon.global_position.x)
+	if direction < 0:
+		current_weapon.flip_v = true
+	else:
+		current_weapon.flip_v = false
+
+	current_weapon.look_at(mouse_pos)
+
+	# Set weapon position
+	var offset = 100 * current_direction
+	current_weapon.position.x = $Body.texture.get_width() * current_direction - offset
 
 func _tilt_player(dir):
 	match dir:
@@ -40,14 +59,18 @@ func _halo_location():
 
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
+	current_weapon = $Pistol
 
 func _physics_process(_delta):
+	_weapon_pos()
 	_halo_location()
 
 	if Input.is_action_pressed("move_right"):
+		current_direction = move_dir.MOVE_RIGHT
 		_tilt_player(move_dir.MOVE_RIGHT)
 		velocity.x = SPEED
 	elif Input.is_action_pressed("move_left"):
+		current_direction = move_dir.MOVE_LEFT
 		_tilt_player(move_dir.MOVE_LEFT)
 		velocity.x = -SPEED
 	else:
