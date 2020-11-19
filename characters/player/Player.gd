@@ -57,6 +57,9 @@ func _halo_location():
 	player_halo.position.y -= 25
 	player_halo.position.x = self.position.x
 
+func _shoot():
+	current_weapon.shoot()
+
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
 	current_weapon = $Pistol
@@ -78,6 +81,9 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMPFORCE
+
+	if Input.is_action_just_pressed("player_shoot"):
+		_shoot()
 
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)
