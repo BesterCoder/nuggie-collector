@@ -20,7 +20,7 @@ func _ready():
 	$floor_checker.enabled = detects_cliffs
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Flip the character if it hits a wall or while it hits the end of a cliff
 	# while being on the floor (ground)
 	# TODO: clener if
