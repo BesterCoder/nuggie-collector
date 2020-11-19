@@ -8,7 +8,12 @@ var velocity = Vector2(0, 0)
 export var direction = DIR_LEFT
 export var detects_cliffs = true
 
+func hurt():
+	queue_free()
+
 func _ready():
+	add_to_group("enemies")
+
 	$SlimeAnimation.play("moving")
 
 	if direction == DIR_LEFT:
