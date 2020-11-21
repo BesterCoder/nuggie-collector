@@ -18,6 +18,7 @@ func _ready():
 
 	if direction == DIR_LEFT:
 		$SlimeAnimation.flip_h = true
+		$HealthBar.rect_position.x = -20
 
 	# Set the floor checker ray to left or right of the collision box
 	# depending on the enemy's direction
@@ -33,6 +34,7 @@ func _physics_process(_delta):
 		# Flip the direction
 		direction = direction * -1
 		$SlimeAnimation.flip_h = not $SlimeAnimation.flip_h
+		$HealthBar.rect_position.x = -20 if $SlimeAnimation.flip_h else -8
 		# Set the floor checker ray to left or right of the collision box
 		# Depending on the enemy's direction
 		$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
