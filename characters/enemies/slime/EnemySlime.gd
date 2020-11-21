@@ -3,15 +3,26 @@ extends KinematicBody2D
 enum {DIR_LEFT = -1, DIR_RIGHT = 1, DIR_NONE = 0}
 
 var speed = 50
+var current_hp = -1
 var velocity = Vector2(0, 0)
 # export makes the variable modifiable in the scene editor
 export var direction = DIR_LEFT
 export var detects_cliffs = true
+export var hp_amount : int = 2
 
 func hurt():
-	queue_free()
+	current_hp -= 1
+	if current_hp == 0:
+		$HealthBar.get_node("ColorRect").rect_size.x = 0
+		queue_free()
+		return
+
+	var current_size = $HealthBar.get_node("ColorRect").rect_size.x
+	var new_size = float(current_size) * (float(current_hp) / hp_amount)
+	$HealthBar.get_node("ColorRect").rect_size.x = new_size
 
 func _ready():
+	current_hp = hp_amount
 	add_to_group("enemies")
 
 	$SlimeAnimation.play("moving")
