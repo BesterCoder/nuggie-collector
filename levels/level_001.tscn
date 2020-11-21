@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/maps/dark_solid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/background/grey_background.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/PlayerGroundHalo.tscn" type="PackedScene" id=4]
 [ext_resource path="res://characters/enemies/slime/EnemySlime.tscn" type="PackedScene" id=5]
+[ext_resource path="res://items/nuggie/Nuggie.tscn" type="PackedScene" id=6]
 
 [node name="Level_001" type="Node2D"]
 
@@ -50,3 +51,11 @@ detects_cliffs = false
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 504, 352 )
 detects_cliffs = false
+
+[node name="Nuggies" type="Node2D" parent="."]
+
+[node name="Nuggie" parent="Nuggies" instance=ExtResource( 6 )]
+position = Vector2( 856, 408 )
+
+[node name="Nuggie2" parent="Nuggies" instance=ExtResource( 6 )]
+position = Vector2( 1240, 216 )
