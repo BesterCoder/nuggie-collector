@@ -62,7 +62,7 @@ func _shoot():
 
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
-	current_weapon = $Pistol
+	current_weapon = $Rifle
 
 func _physics_process(_delta):
 	_weapon_pos()
