@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal weapon_chagned
+
 const SPEED = 180*3
 const GRAVITY = 35
 const JUMPFORCE = -1000
@@ -12,6 +14,7 @@ var current_direction = move_dir.MOVE_RIGHT
 var current_weapon = null
 var velocity = Vector2(0, 0)
 var player_halo = null
+var weapons = []
 
 # Rotate and and the weapon location
 # based on mouse location and move direction
@@ -60,9 +63,24 @@ func _halo_location():
 func _shoot():
 	current_weapon.shoot()
 
+func _change_weapon(idx: int):
+	if current_weapon.name == weapons[idx].name:
+		return
+
+	current_weapon = weapons[idx]
+	for wp in weapons:
+		if wp.name == current_weapon.name:
+			wp.visible = true
+		else:
+			wp.visible = false
+
+
+	emit_signal("weapon_chagned")
+
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
-	current_weapon = $Rifle
+	weapons = [$Pistol, $Rifle]
+	current_weapon = weapons[0]
 
 func _physics_process(_delta):
 	_weapon_pos()
@@ -84,6 +102,11 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("player_shoot"):
 		_shoot()
+
+	if Input.is_action_just_pressed("select_pistol"):
+		_change_weapon(0)
+	elif Input.is_action_just_pressed("select_rifle"):
+		_change_weapon(1)
 
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)
