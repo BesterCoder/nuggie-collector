@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/weapons/pistol/pistol.png" type="Texture" id=2]
@@ -6,24 +6,26 @@
 [ext_resource path="res://assets/hud/weapon_ammo_border.png" type="Texture" id=4]
 [ext_resource path="res://assets/hud/weapon_select_border.png" type="Texture" id=5]
 [ext_resource path="res://assets/hud/player_health_border.png" type="Texture" id=6]
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 44
-font_data = ExtResource( 1 )
+[ext_resource path="res://characters/player/PlayerHUD.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 1 )
 
 [node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource( 7 )
 
 [node name="Pistol" type="ColorRect" parent="."]
 margin_left = 752.0
@@ -60,7 +62,7 @@ __meta__ = {
 margin_top = 70.0
 margin_right = 92.0
 margin_bottom = 169.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1
 "
@@ -114,7 +116,7 @@ __meta__ = {
 margin_top = 70.0
 margin_right = 92.0
 margin_bottom = 169.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2
 
@@ -160,7 +162,7 @@ __meta__ = {
 margin_top = 70.0
 margin_right = 92.0
 margin_bottom = 169.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3
 "
@@ -182,7 +184,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Ammo"]
 margin_right = 152.0
 margin_bottom = 92.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "##/##"
 align = 1
@@ -210,7 +212,7 @@ margin_left = -88.0
 margin_top = 8.0
 margin_right = 40.0
 margin_bottom = 104.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.164706, 0.164706, 0.164706, 1 )
 text = "HP:"
 
@@ -226,7 +228,7 @@ margin_left = 528.0
 margin_top = 40.0
 margin_right = 694.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.164706, 0.164706, 0.164706, 1 )
 text = ": ## / ##"
 __meta__ = {
