@@ -100,7 +100,10 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMPFORCE
 
-	if Input.is_action_just_pressed("player_shoot"):
+	if current_weapon.name == "Rifle":
+		if Input.is_action_pressed("player_shoot"):
+			_shoot()
+	elif Input.is_action_just_pressed("player_shoot"):
 		_shoot()
 
 	if Input.is_action_just_pressed("select_pistol"):
