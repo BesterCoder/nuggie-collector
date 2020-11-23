@@ -79,7 +79,7 @@ func _change_weapon(idx: int):
 
 func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
-	weapons = [$Pistol, $Rifle]
+	weapons = [$Pistol, $Rifle, $Shotgun]
 	current_weapon = weapons[0]
 
 func _physics_process(_delta):
@@ -107,6 +107,8 @@ func _physics_process(_delta):
 		_change_weapon(0)
 	elif Input.is_action_just_pressed("select_rifle"):
 		_change_weapon(1)
+	elif Input.is_action_just_pressed("select_shotgun"):
+		_change_weapon(2)
 
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)

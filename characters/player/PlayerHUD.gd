@@ -29,7 +29,7 @@ func _ready():
 	player.connect("weapon_chagned", self, "_on_weapon_changed")
 
 	# Weapons need to be in the same order as in Player.gd
-	hud_weapons = [$Pistol, $Rifle]
+	hud_weapons = [$Pistol, $Rifle, $Shotgun]
 
 func _update_nuggie_text():
 	var text = ": %d/%d" % [nuggies_collected, nuggie_count]

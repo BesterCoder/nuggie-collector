@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/weapons/pistol/pistol.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/hud/player_health_border.png" type="Texture" id=6]
 [ext_resource path="res://characters/player/PlayerHUD.gd" type="Script" id=7]
 [ext_resource path="res://assets/weapons/rifle/riflev01.png" type="Texture" id=8]
+[ext_resource path="res://assets/weapons/shotgun/shotgunv01.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -135,6 +136,9 @@ margin_bottom = 64.0
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shotgun" type="ColorRect" parent="."]
 margin_left = 976.0
@@ -177,6 +181,18 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3
 "
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gun" type="TextureRect" parent="Shotgun"]
+margin_left = 12.0
+margin_top = 24.0
+margin_right = 84.0
+margin_bottom = 64.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
