@@ -2,6 +2,13 @@ extends Sprite
 
 export var weapon_bullet: PackedScene
 
+const rotation_map = [
+	deg2rad(15),
+	deg2rad(7.5),
+	deg2rad(0),
+	deg2rad(-15),
+	deg2rad(-7.5),
+]
 
 func shoot():
 	var point_position = $BulletPoint.global_position
@@ -11,8 +18,9 @@ func shoot():
 		point_position = $BulletPoint.global_position
 		$BulletPoint.position.y *= -1
 
-	var new_bullet = weapon_bullet.instance()
-	new_bullet.initialize((get_global_mouse_position() - global_position).normalized())
-	new_bullet.global_position = point_position
-
-	get_tree().current_scene.add_child(new_bullet)
+	var normalized_vector = (get_global_mouse_position() - global_position).normalized()
+	for rotation in rotation_map:
+		var new_bullet = weapon_bullet.instance()
+		new_bullet.initialize(normalized_vector.rotated(rotation))
+		new_bullet.global_position = point_position
+		get_tree().current_scene.add_child(new_bullet)
