@@ -9,6 +9,7 @@ const rotation_map = [
 ]
 
 func _ready():
+	set_ammo_amounts(10, 10)
 	set_shoot_wait_time(0.4)
 
 # Called from WeaponBase shoot function

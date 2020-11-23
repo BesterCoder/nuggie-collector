@@ -1,6 +1,7 @@
 extends WeaponBase
 
 func _ready():
+	set_infinite_ammo()
 	set_shoot_wait_time(0.4)
 
 # Called from WeaponBase shoot function
