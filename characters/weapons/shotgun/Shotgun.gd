@@ -1,6 +1,4 @@
-extends Sprite
-
-export var weapon_bullet: PackedScene
+extends WeaponBase
 
 const rotation_map = [
 	deg2rad(15),
@@ -10,23 +8,11 @@ const rotation_map = [
 	deg2rad(-7.5),
 ]
 
-var shoot_timer = null
-var shoot_ready = true
-
 func _ready():
-	shoot_timer = Timer.new()
-	add_child(shoot_timer)
-	shoot_timer.wait_time = 0.4
-	shoot_timer.connect("timeout", self, "_on_shoot_ready")
+	set_shoot_wait_time(0.4)
 
-func _on_shoot_ready():
-	shoot_ready = true
-
-func shoot():
-	if not shoot_ready:
-		return
-	shoot_ready = false
-
+# Called from WeaponBase shoot function
+func weapon_shoot():
 	var point_position = $BulletPoint.global_position
 	# TODO: cleaner way to change the y position when weapon is flipped
 	if self.flip_v:
@@ -40,5 +26,3 @@ func shoot():
 		new_bullet.initialize(normalized_vector.rotated(rotation))
 		new_bullet.global_position = point_position
 		get_tree().current_scene.add_child(new_bullet)
-
-	shoot_timer.start()
