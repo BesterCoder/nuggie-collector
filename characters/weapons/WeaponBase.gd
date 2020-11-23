@@ -2,6 +2,8 @@ extends Sprite
 
 class_name WeaponBase
 
+signal weapon_shot(weapon)
+
 export var weapon_bullet: PackedScene
 
 var shoot_timer = null
@@ -30,6 +32,7 @@ func shoot():
 
 	current_ammo -= 1
 	weapon_shoot()
+	emit_signal("weapon_shot", self)
 	_start_shoot_timer()
 
 func weapon_shoot():

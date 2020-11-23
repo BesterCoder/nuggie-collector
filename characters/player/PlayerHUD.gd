@@ -30,10 +30,21 @@ func _ready():
 
 	# Weapons need to be in the same order as in Player.gd
 	hud_weapons = [$Pistol, $Rifle, $Shotgun]
+	for wp in hud_weapons:
+		player.get_node(wp.name).connect("weapon_shot", self, "_on_weapon_shot")
+	_update_ammo_text(player.current_weapon)
 
 func _update_nuggie_text():
 	var text = ": %d/%d" % [nuggies_collected, nuggie_count]
 	$NuggieCollected.text = text
+
+func _update_ammo_text(weapon):
+	if weapon.infinite_ammo:
+		# TODO: infinity image?
+		$Ammo/Label.text = "Inf"
+	else:
+		$Ammo/Label.text = "%d/%d" % [weapon.current_ammo, weapon.max_ammo]
+
 
 func _on_nuggie_collected():
 	nuggies_collected += 1
@@ -42,6 +53,10 @@ func _on_nuggie_collected():
 func _on_weapon_changed():
 	for idx in range(len(player.weapons)):
 		if hud_weapons[idx].name == player.current_weapon.name:
+			_update_ammo_text(player.current_weapon)
 			hud_weapons[idx].get_node("TextureRect").visible = true
 		else:
 			hud_weapons[idx].get_node("TextureRect").visible = false
+
+func _on_weapon_shot(weapon):
+	_update_ammo_text(weapon)
