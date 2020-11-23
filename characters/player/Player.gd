@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal weapon_chagned
+signal health_chagned
 
 const SPEED = 180*3
 const GRAVITY = 35
@@ -25,6 +26,7 @@ func deal_damage(damage: int):
 		queue_free()
 	elif health > max_health:
 		health = max_health
+	emit_signal("health_chagned")
 
 # Rotate and and the weapon location
 # based on mouse location and move direction

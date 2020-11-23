@@ -4,6 +4,7 @@ var nuggie_count = 0
 var nuggies_collected = 0
 var player = null
 var hud_weapons = []
+var hp_bar_width = 0
 
 # Print and push a error message end exit the game
 func _hud_error_exit(message: String):
@@ -13,6 +14,8 @@ func _hud_error_exit(message: String):
 	get_tree().quit()
 
 func _ready():
+	hp_bar_width = $HealthBar.rect_size.x
+
 	var nuggies = get_tree().get_root().find_node("Nuggies", true, false).get_children()
 	# Nuggies are required in each level
 	if nuggies == null:
@@ -27,6 +30,7 @@ func _ready():
 	if player == null:
 		_hud_error_exit("No Player found in the Scene")
 	player.connect("weapon_chagned", self, "_on_weapon_changed")
+	player.connect("health_chagned", self, "_on_health_changed")
 
 	# Weapons need to be in the same order as in Player.gd
 	hud_weapons = [$Pistol, $Rifle, $Shotgun]
@@ -45,10 +49,13 @@ func _update_ammo_text(weapon):
 	else:
 		$Ammo/Label.text = "%d/%d" % [weapon.current_ammo, weapon.max_ammo]
 
-
 func _on_nuggie_collected():
 	nuggies_collected += 1
 	_update_nuggie_text()
+
+func _on_health_changed():
+	var new_size = float(hp_bar_width) * (float(player.health) / player.max_health)
+	$HealthBar.rect_size.x = new_size
 
 func _on_weapon_changed():
 	for idx in range(len(player.weapons)):
