@@ -53,3 +53,6 @@ func _physics_process(_delta):
 	velocity.y += 20
 	velocity.x = speed * direction
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+func _on_player_body_entered(body):
+	body.deal_damage(20)

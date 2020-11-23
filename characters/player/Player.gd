@@ -15,6 +15,16 @@ var current_weapon = null
 var velocity = Vector2(0, 0)
 var player_halo = null
 var weapons = []
+var health = 100
+var max_health = 100
+
+# Dealing negative damage heals the player
+func deal_damage(damage: int):
+	health -= damage
+	if health <= 0:
+		queue_free()
+	elif health > max_health:
+		health = max_health
 
 # Rotate and and the weapon location
 # based on mouse location and move direction
