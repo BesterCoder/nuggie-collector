@@ -55,4 +55,4 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func _on_player_body_entered(body):
-	body.deal_damage(20)
+	body.deal_damage(20, global_position.x)

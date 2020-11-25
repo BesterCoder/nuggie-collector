@@ -38,3 +38,7 @@ scale = Vector2( 0.8, 0.8 )
 visible = false
 position = Vector2( 112, 120 )
 scale = Vector2( 0.3, 0.3 )
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
