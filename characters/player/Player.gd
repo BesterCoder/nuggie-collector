@@ -47,7 +47,19 @@ func add_ammo(ammo):
 func _weapon_pos():
 	# Rotate weapon
 	var mouse_pos = get_global_mouse_position();
-	var direction = sign(mouse_pos.x - current_weapon.global_position.x)
+	# global_position.x is in the middle of the character
+	var halfsize = int($Body.texture.get_size().x * scale.x / 2)
+	var player_left = global_position.x - halfsize
+	var player_right = global_position.x + halfsize
+
+	var direction = 0
+	if mouse_pos.x < player_left:
+		direction = -1
+	elif mouse_pos.x > player_right:
+		direction = 1
+	else:
+		direction = current_direction
+
 	if direction < 0:
 		current_weapon.flip_v = true
 	else:
@@ -56,8 +68,8 @@ func _weapon_pos():
 	current_weapon.look_at(mouse_pos)
 
 	# Set weapon position
-	var offset = 100 * current_direction
-	current_weapon.position.x = $Body.texture.get_width() * current_direction - offset
+	var offset = 100 * direction
+	current_weapon.position.x = $Body.texture.get_width() * direction - offset
 
 func _tilt_player(dir):
 	match dir:
