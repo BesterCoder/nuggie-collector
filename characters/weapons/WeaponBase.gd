@@ -24,6 +24,18 @@ func _start_shoot_timer():
 	shoot_ready = false
 	shoot_timer.start()
 
+# Add ammo if the current_ammo isn't maxed out
+# return true if ammo is added
+func add_ammo(amount: int) -> bool:
+	if current_ammo == max_ammo:
+		return false
+
+	current_ammo += amount
+	if current_ammo > max_ammo:
+		current_ammo = max_ammo
+
+	return true
+
 func shoot():
 	if not shoot_ready:
 		return

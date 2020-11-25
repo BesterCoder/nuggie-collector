@@ -28,6 +28,18 @@ func deal_damage(damage: int):
 		health = max_health
 	emit_signal("health_chagned")
 
+# Add a ammo object
+func add_ammo(ammo):
+	# See types from Ammo.gd
+	match ammo.ammo_type:
+		1:
+			return $Rifle.add_ammo(ammo.ammo_amount)
+		2:
+			return $Shotgun.add_ammo(ammo.ammo_amount)
+
+	# Ammo not collected
+	return false
+
 # Rotate and and the weapon location
 # based on mouse location and move direction
 func _weapon_pos():

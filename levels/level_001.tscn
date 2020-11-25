@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/maps/dark_solid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/background/grey_background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://characters/enemies/slime/EnemySlime.tscn" type="PackedScene" id=5]
 [ext_resource path="res://items/nuggie/Nuggie.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/player/PlayerHUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://items/ammo/Ammo.tscn" type="PackedScene" id=8]
 
 [node name="Level_001" type="Node2D"]
 
@@ -60,5 +61,14 @@ position = Vector2( 856, 408 )
 
 [node name="Nuggie2" parent="Nuggies" instance=ExtResource( 6 )]
 position = Vector2( 1240, 216 )
+
+[node name="Ammo" type="Node2D" parent="."]
+
+[node name="Ammo" parent="Ammo" instance=ExtResource( 8 )]
+position = Vector2( 168, 424 )
+
+[node name="Ammo2" parent="Ammo" instance=ExtResource( 8 )]
+position = Vector2( 592, 424 )
+ammo_type = 1
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 7 )]
