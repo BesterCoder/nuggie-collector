@@ -33,9 +33,11 @@ func add_ammo(ammo):
 	# See types from Ammo.gd
 	match ammo.ammo_type:
 		1:
-			return $Rifle.add_ammo(ammo.ammo_amount)
+			var equipped = current_weapon.name == "Rifle"
+			return $Rifle.add_ammo(ammo.ammo_amount, equipped)
 		2:
-			return $Shotgun.add_ammo(ammo.ammo_amount)
+			var equipped = current_weapon.name == "Shotgun"
+			return $Shotgun.add_ammo(ammo.ammo_amount, equipped)
 
 	# Ammo not collected
 	return false

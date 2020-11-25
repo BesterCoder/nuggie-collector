@@ -2,7 +2,7 @@ extends Sprite
 
 class_name WeaponBase
 
-signal weapon_shot(weapon)
+signal weapon_ammo_changed(weapon)
 
 export var weapon_bullet: PackedScene
 
@@ -26,7 +26,7 @@ func _start_shoot_timer():
 
 # Add ammo if the current_ammo isn't maxed out
 # return true if ammo is added
-func add_ammo(amount: int) -> bool:
+func add_ammo(amount: int, weapon_equipped: bool) -> bool:
 	if current_ammo == max_ammo:
 		return false
 
@@ -34,6 +34,8 @@ func add_ammo(amount: int) -> bool:
 	if current_ammo > max_ammo:
 		current_ammo = max_ammo
 
+	if weapon_equipped:
+		emit_signal("weapon_ammo_changed", self)
 	return true
 
 func shoot():
@@ -44,7 +46,7 @@ func shoot():
 
 	current_ammo -= 1
 	weapon_shoot()
-	emit_signal("weapon_shot", self)
+	emit_signal("weapon_ammo_changed", self)
 	_start_shoot_timer()
 
 func weapon_shoot():

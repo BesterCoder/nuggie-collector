@@ -35,7 +35,7 @@ func _ready():
 	# Weapons need to be in the same order as in Player.gd
 	hud_weapons = [$Pistol, $Rifle, $Shotgun]
 	for wp in hud_weapons:
-		player.get_node(wp.name).connect("weapon_shot", self, "_on_weapon_shot")
+		player.get_node(wp.name).connect("weapon_ammo_changed", self, "_on_weapon_ammo_changed")
 	_update_ammo_text(player.current_weapon)
 
 func _update_nuggie_text():
@@ -65,5 +65,5 @@ func _on_weapon_changed():
 		else:
 			hud_weapons[idx].get_node("TextureRect").visible = false
 
-func _on_weapon_shot(weapon):
+func _on_weapon_ammo_changed(weapon):
 	_update_ammo_text(weapon)
