@@ -38,18 +38,18 @@ func add_ammo(amount: int, weapon_equipped: bool) -> bool:
 		emit_signal("weapon_ammo_changed", self)
 	return true
 
-func shoot():
+func shoot(target = null):
 	if not shoot_ready:
 		return
 	if not infinite_ammo and current_ammo < 1:
 		return
 
 	current_ammo -= 1
-	weapon_shoot()
+	weapon_shoot(target)
 	emit_signal("weapon_ammo_changed", self)
 	_start_shoot_timer()
 
-func weapon_shoot():
+func weapon_shoot(_target):
 	var msg = "WeaponBase.gd: shoot_handler is not overridden"
 	print(msg)
 	push_error(msg)

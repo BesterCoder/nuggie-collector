@@ -50,6 +50,7 @@ func _physics_process(_delta):
 
 	if shoot_target != null:
 		$Pistol.look_at(shoot_target.global_position)
+		$Pistol.shoot(shoot_target)
 
 func _on_player_body_entered(body):
 	$Pistol.look_at(body.global_position)
