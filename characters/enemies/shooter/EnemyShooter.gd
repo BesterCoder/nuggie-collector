@@ -75,10 +75,12 @@ func _physics_process(_delta):
 func _on_player_body_entered(body):
 	$Pistol.look_at(body.global_position)
 	shoot_target = body
+	speed = 0
 
 
 func _on_player_body_exited(_body):
 	shoot_target = null
+	speed = 50
 	if $Pistol.flip_v:
 		$Pistol.rotation = 180 - 45
 	else:
