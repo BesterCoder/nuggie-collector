@@ -27,7 +27,6 @@ func _weapon_pos():
 	if shoot_target == null:
 		return
 
-	var direction = 0
 	if shoot_target.global_position.x > self.global_position.x:
 		direction = 1
 	else:
