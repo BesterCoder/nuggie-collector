@@ -23,6 +23,25 @@ func hurt():
 	var new_size = float(current_size) * (float(current_hp) / hp_amount)
 	$HealthBar.get_node("ColorRect").rect_size.x = new_size
 
+func _weapon_pos():
+	if shoot_target == null:
+		return
+
+	var direction = 0
+	if shoot_target.global_position.x > self.global_position.x:
+		direction = 1
+	else:
+		direction = -1
+
+	if direction < 0:
+		$Pistol.flip_v = true
+	else:
+		$Pistol.flip_v = false
+
+	# Set weapon position
+	var offset = 100 * direction
+	$Pistol.position.x = $Body.texture.get_width() * direction - offset
+
 func _ready():
 	current_hp = hp_amount
 	add_to_group("enemies")
@@ -49,6 +68,7 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 	if shoot_target != null:
+		_weapon_pos()
 		$Pistol.look_at(shoot_target.global_position)
 		$Pistol.shoot(shoot_target)
 
@@ -59,4 +79,7 @@ func _on_player_body_entered(body):
 
 func _on_player_body_exited(_body):
 	shoot_target = null
-	$Pistol.rotation = 0.0
+	if $Pistol.flip_v:
+		$Pistol.rotation = 180 - 45
+	else:
+		$Pistol.rotation = 0.0
