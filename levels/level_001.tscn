@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/maps/dark_solid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/background/grey_background.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://items/nuggie/Nuggie.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/player/PlayerHUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://items/ammo/Ammo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/enemies/shooter/EnemyShooter.tscn" type="PackedScene" id=9]
 
 [node name="Level_001" type="Node2D"]
 
@@ -53,6 +54,10 @@ detects_cliffs = false
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 504, 352 )
 detects_cliffs = false
+
+[node name="EnemyShooter" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1136, 184 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="Nuggies" type="Node2D" parent="."]
 
