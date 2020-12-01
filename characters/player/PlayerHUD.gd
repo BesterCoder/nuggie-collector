@@ -31,6 +31,7 @@ func _ready():
 		_hud_error_exit("No Player found in the Scene")
 	player.connect("weapon_chagned", self, "_on_weapon_changed")
 	player.connect("health_chagned", self, "_on_health_changed")
+	_on_health_changed()
 
 	# Weapons need to be in the same order as in Player.gd
 	hud_weapons = [$Pistol, $Rifle, $Shotgun]
@@ -56,6 +57,7 @@ func _on_nuggie_collected():
 func _on_health_changed():
 	var new_size = float(hp_bar_width) * (float(player.health) / player.max_health)
 	$HealthBar.rect_size.x = new_size
+	$HealthBar/HpAmount.text = "%d/%d" % [player.health, player.max_health]
 
 func _on_weapon_changed():
 	for idx in range(len(player.weapons)):
