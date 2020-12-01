@@ -23,7 +23,11 @@ var hurting = false
 # Dealing negative damage heals the player
 # if enemy_posx is not NAN player is knocked back
 # to a direction based on enemy_position
-func deal_damage(damage: int, enemy_posx: int = NAN):
+func deal_damage(damage: int, enemy_posx: int = NAN) -> bool:
+	# Signal that player is full health when trying to heal
+	if damage < 0 && health == max_health:
+		return false
+
 	health -= damage
 	if health <= 0:
 		queue_free()
@@ -34,7 +38,7 @@ func deal_damage(damage: int, enemy_posx: int = NAN):
 	# Deal with knockback after the damage is dealt
 	# NAN is not equal to it self
 	if String(enemy_posx) == "nan":
-		return
+		return true
 
 	set_modulate(Color(1, 0.3, 0.3, 0.4))
 	velocity.y = JUMPFORCE * 0.5
@@ -46,6 +50,7 @@ func deal_damage(damage: int, enemy_posx: int = NAN):
 
 	hurting = true
 	$HurtTimer.start()
+	return true
 
 # Add a ammo object
 func add_ammo(ammo):
