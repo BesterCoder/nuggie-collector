@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://characters/enemies/slime/EnemySlime.gd" type="Script" id=1]
 [ext_resource path="res://characters/enemies/slime/slime_animation.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://assets/health_bar/health_bar.png" type="Texture" id=3]
+[ext_resource path="res://characters/enemies/damage_number/DamageNumber.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 12 )
@@ -15,6 +16,7 @@ scale = Vector2( 2, 2 )
 collision_layer = 32
 collision_mask = 66
 script = ExtResource( 1 )
+damage_number = ExtResource( 4 )
 
 [node name="SlimeAnimation" type="AnimatedSprite" parent="."]
 frames = ExtResource( 2 )

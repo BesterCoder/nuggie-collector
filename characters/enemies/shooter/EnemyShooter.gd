@@ -6,14 +6,24 @@ var speed = 50
 var current_hp = -1
 var velocity = Vector2(0, 0)
 var shoot_target = null
+var number_dir = -1
 
 # export makes the variable modifiable in the scene editor
 export var direction = DIR_LEFT
 export var detects_cliffs = true
 export var hp_amount : int = 2
+export var damage_number: PackedScene
 
 func hurt():
 	current_hp -= 1
+
+	var number = damage_number.instance()
+	var startpos = global_position
+	startpos.y -= 20
+	number_dir *= -1
+	number.initialize(startpos, 1, number_dir)
+	get_tree().get_root().call_deferred("add_child", number)
+
 	if current_hp == 0:
 		$HealthBar.get_node("ColorRect").rect_size.x = 0
 		queue_free()
