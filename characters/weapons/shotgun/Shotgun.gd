@@ -28,6 +28,5 @@ func weapon_shoot(target):
 	var normalized_vector = (target_pos - global_position).normalized()
 	for rotation in rotation_map:
 		var new_bullet = weapon_bullet.instance()
-		new_bullet.initialize(normalized_vector.rotated(rotation))
-		new_bullet.global_position = point_position
+		new_bullet.initialize(point_position, normalized_vector.rotated(rotation))
 		get_tree().current_scene.add_child(new_bullet)

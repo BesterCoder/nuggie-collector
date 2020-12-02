@@ -18,7 +18,5 @@ func weapon_shoot(target):
 		$BulletPoint.position.y *= -1
 
 	var new_bullet = weapon_bullet.instance()
-	new_bullet.initialize((target_pos - global_position).normalized())
-	new_bullet.global_position = point_position
-
+	new_bullet.initialize(point_position, (target_pos - global_position).normalized())
 	get_tree().current_scene.add_child(new_bullet)
