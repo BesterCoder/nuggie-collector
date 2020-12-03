@@ -6,6 +6,8 @@ var player = null
 var hud_weapons = []
 var hp_bar_width = 0
 
+var level_portal = load("res://items/portal/Portal.tscn")
+
 # Print and push a error message end exit the game
 func _hud_error_exit(message: String):
 	var msg = "PlayerHUD.gd: %s" % message
@@ -50,9 +52,13 @@ func _update_ammo_text(weapon):
 	else:
 		$Ammo/Label.text = "%d/%d" % [weapon.current_ammo, weapon.max_ammo]
 
-func _on_nuggie_collected():
+func _on_nuggie_collected(nuggie_position):
 	nuggies_collected += 1
 	_update_nuggie_text()
+	if nuggies_collected == nuggie_count:
+		var portal = level_portal.instance()
+		portal.global_position = nuggie_position
+		get_tree().get_root().call_deferred("add_child", portal)
 
 func _on_health_changed():
 	var new_size = float(hp_bar_width) * (float(player.health) / player.max_health)
