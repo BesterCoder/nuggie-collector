@@ -15,6 +15,7 @@ export var direction = DIR_LEFT
 export var detects_cliffs = true
 export var hp_amount : int = 2
 export var movement_range: int = -1
+export var moving: bool = true
 export var damage_number: PackedScene
 
 func hurt():
@@ -68,6 +69,9 @@ func _physics_process(delta):
 		_child_change_direction()
 
 	var x_move = speed * direction
+	if not moving:
+		x_move = 0
+
 	moved_amount += x_move * delta
 	velocity.y += 20
 	velocity.x = x_move

@@ -3,7 +3,8 @@ extends EnemyBase
 
 func _child_ready():
 
-	$SlimeAnimation.play("moving")
+	if moving:
+		$SlimeAnimation.play("moving")
 
 	if direction == DIR_LEFT:
 		$SlimeAnimation.flip_h = true

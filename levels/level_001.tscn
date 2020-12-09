@@ -58,6 +58,7 @@ detects_cliffs = false
 position = Vector2( 504, 352 )
 detects_cliffs = false
 movement_range = 10
+moving = false
 
 [node name="EnemySlime4" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3744, 352 )
@@ -79,6 +80,7 @@ scale = Vector2( 0.25, 0.25 )
 [node name="EnemyShooter3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3024, 64 )
 scale = Vector2( 0.25, 0.25 )
+moving = false
 
 [node name="EnemyShooter4" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 6808, 32 )
