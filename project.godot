@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "EnemyBase",
+"language": "GDScript",
+"path": "res://characters/enemies/EnemyBase.gd"
+}, {
 "base": "Sprite",
 "class": "WeaponBase",
 "language": "GDScript",
 "path": "res://characters/weapons/WeaponBase.gd"
 } ]
 _global_script_class_icons={
+"EnemyBase": "",
 "WeaponBase": ""
 }
 
