@@ -8,11 +8,13 @@ var speed = 50
 var current_hp = -1
 var velocity = Vector2(0, 0)
 var number_dir = -1
+var moved_amount: float = 0
 
 # export makes the variable modifiable in the scene editor
 export var direction = DIR_LEFT
 export var detects_cliffs = true
 export var hp_amount : int = 2
+export var movement_range: int = -1
 export var damage_number: PackedScene
 
 func hurt():
@@ -57,7 +59,7 @@ func _physics_process(delta):
 	# Flip the character if it hits a wall or while it hits the end of a cliff
 	# while being on the floor (ground)
 	# TODO: clener if
-	if is_on_wall() or (detects_cliffs and not $floor_checker.is_colliding() and is_on_floor()):
+	if is_on_wall() or (detects_cliffs and not $floor_checker.is_colliding() and is_on_floor()) or (movement_range > 0 and abs(moved_amount) >= movement_range):
 		# Flip the direction
 		direction = direction * -1
 		# Set the floor checker ray to left or right of the collision box
@@ -65,8 +67,10 @@ func _physics_process(delta):
 		$floor_checker.position.x = $CollisionShape2D.shape.get_extents().x * direction
 		_child_change_direction()
 
+	var x_move = speed * direction
+	moved_amount += x_move * delta
 	velocity.y += 20
-	velocity.x = speed * direction
+	velocity.x = x_move
 	velocity = move_and_slide(velocity, Vector2.UP)
 	_child_physics_process(delta)
 

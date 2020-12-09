@@ -57,6 +57,7 @@ detects_cliffs = false
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 504, 352 )
 detects_cliffs = false
+movement_range = 10
 
 [node name="EnemySlime4" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3744, 352 )
@@ -65,6 +66,7 @@ detects_cliffs = false
 [node name="EnemySlime5" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 4688, 352 )
 detects_cliffs = false
+movement_range = 200
 
 [node name="EnemyShooter" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1136, 184 )
@@ -83,8 +85,9 @@ position = Vector2( 6808, 32 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="EnemyShooter5" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( 5688, 264 )
+position = Vector2( 5936, 352 )
 scale = Vector2( 0.25, 0.25 )
+movement_range = 200
 
 [node name="Nuggies" type="Node2D" parent="."]
 
