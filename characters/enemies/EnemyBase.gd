@@ -9,6 +9,7 @@ var current_hp = -1
 var velocity = Vector2(0, 0)
 var number_dir = -1
 var moved_amount: float = 0
+var explode_bullet = null
 
 # export makes the variable modifiable in the scene editor
 export var direction = DIR_LEFT
@@ -17,6 +18,17 @@ export var hp_amount : int = 2
 export var movement_range: int = -1
 export var moving: bool = true
 export var damage_number: PackedScene
+export var explode: bool = false
+
+
+func _explode():
+	var _angle = 15
+	var _vector = Vector2(1, 0)
+	for _nouse in range(12):
+		var new_bullet = explode_bullet.instance()
+		new_bullet.initialize(global_position, _vector.rotated(deg2rad(_angle)))
+		get_tree().current_scene.call_deferred("add_child", new_bullet)
+		_angle += 30
 
 func hurt():
 	current_hp -= 1
@@ -29,6 +41,8 @@ func hurt():
 	get_tree().get_root().call_deferred("add_child", number)
 
 	if current_hp == 0:
+		if explode:
+			_explode()
 		$HealthBar.get_node("ColorRect").rect_size.x = 0
 		queue_free()
 		return
@@ -41,6 +55,9 @@ func hurt():
 func _ready():
 	current_hp = hp_amount
 	add_to_group("enemies")
+
+	if explode:
+		explode_bullet = load("res://characters/weapons/bullet/EnemyBullet.tscn")
 
 	# Set the floor checker ray to left or right of the collision box
 	# depending on the enemy's direction
