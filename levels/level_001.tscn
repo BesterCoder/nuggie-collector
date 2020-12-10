@@ -81,11 +81,13 @@ drop_type = 2
 [node name="EnemyShooter2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3840, 48 )
 scale = Vector2( 0.25, 0.25 )
+weapon_type = 3
 
 [node name="EnemyShooter3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3024, 64 )
 scale = Vector2( 0.25, 0.25 )
 moving = false
+weapon_type = 2
 
 [node name="EnemyShooter4" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 6808, 32 )
