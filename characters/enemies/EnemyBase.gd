@@ -30,7 +30,7 @@ func _explode():
 	var _vector = Vector2(1, 0)
 	for _nouse in range(12):
 		var new_bullet = explode_bullet.instance()
-		new_bullet.initialize(global_position, _vector.rotated(deg2rad(_angle)))
+		new_bullet.initialize(global_position, _vector.rotated(deg2rad(_angle)), int(damage_amount / 2))
 		get_tree().current_scene.call_deferred("add_child", new_bullet)
 		_angle += 30
 
