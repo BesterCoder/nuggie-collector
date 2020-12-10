@@ -63,7 +63,10 @@ func _on_nuggie_collected(nuggie_position):
 func _on_health_changed():
 	var new_size = float(hp_bar_width) * (float(player.health) / player.max_health)
 	$HealthBar.rect_size.x = new_size
-	$HealthBar/HpAmount.text = "%d/%d" % [player.health, player.max_health]
+	var playerh = player.health
+	if playerh < 0:
+		playerh = 0
+	$HealthBar/HpAmount.text = "%d/%d" % [playerh, player.max_health]
 
 func _on_weapon_changed():
 	for idx in range(len(player.weapons)):
