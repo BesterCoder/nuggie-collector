@@ -20,4 +20,4 @@ func _child_physics_process(_delta):
 	pass
 
 func _on_player_body_entered(body):
-	body.deal_damage(20, global_position.x)
+	body.deal_damage(damage_amount, global_position.x)

@@ -55,7 +55,7 @@ func _child_physics_process(_delta):
 	if shoot_target != null:
 		_weapon_pos()
 		weapon.look_at(shoot_target.global_position)
-		weapon.shoot(shoot_target)
+		weapon.shoot(shoot_target, damage_amount)
 
 func _on_player_body_entered(body):
 	weapon.look_at(body.global_position)

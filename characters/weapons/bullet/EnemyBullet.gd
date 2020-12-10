@@ -6,11 +6,13 @@ const MAX_DISTANCE = 3000
 
 var direction = Vector2(0.0, 0.0)
 var start_pos = null
+var damage: int = 0
 
-func initialize(global_pos: Vector2, _direction: Vector2):
+func initialize(global_pos: Vector2, _direction: Vector2, _damage: int = 10):
 	self.direction = _direction
 	self.start_pos = global_pos
 	self.global_position = global_pos
+	self.damage = _damage
 
 func _physics_process(delta):
 	self.global_position += SPEED * delta * direction
@@ -22,6 +24,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		body.deal_damage(10)
+		body.deal_damage(damage)
 	queue_free()
 

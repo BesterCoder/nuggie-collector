@@ -17,6 +17,7 @@ var drop_item = null
 export var direction = DIR_LEFT
 export var detects_cliffs = true
 export var hp_amount : int = 2
+export var damage_amount: int = 20
 export var movement_range: int = -1
 export var moving: bool = true
 export var damage_number: PackedScene

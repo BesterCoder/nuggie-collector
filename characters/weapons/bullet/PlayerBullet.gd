@@ -6,11 +6,13 @@ const MAX_DISTANCE = 5000
 
 var direction = Vector2(0.0, 0.0)
 var start_pos = null
+var damage: int = 0
 
-func initialize(global_pos: Vector2, _direction: Vector2):
+func initialize(global_pos: Vector2, _direction: Vector2, _damage: int = 1):
 	self.direction = _direction
 	self.start_pos = global_pos
 	self.global_position = global_pos
+	self.damage = _damage
 
 func _physics_process(delta):
 	self.global_position += SPEED * delta * direction

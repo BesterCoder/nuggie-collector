@@ -13,7 +13,7 @@ func _ready():
 	set_shoot_wait_time(0.4)
 
 # Called from WeaponBase shoot function
-func weapon_shoot(target):
+func weapon_shoot(target, damage):
 	var target_pos = get_global_mouse_position()
 	if target != null:
 		target_pos = target.global_position
@@ -28,5 +28,5 @@ func weapon_shoot(target):
 	var normalized_vector = (target_pos - global_position).normalized()
 	for rotation in rotation_map:
 		var new_bullet = weapon_bullet.instance()
-		new_bullet.initialize(point_position, normalized_vector.rotated(rotation))
+		new_bullet.initialize(point_position, normalized_vector.rotated(rotation), damage)
 		get_tree().current_scene.add_child(new_bullet)

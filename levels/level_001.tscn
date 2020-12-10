@@ -58,6 +58,7 @@ drop_type = 3
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 504, 352 )
 detects_cliffs = false
+damage_amount = 5
 movement_range = 10
 moving = false
 explode = true
@@ -75,6 +76,7 @@ movement_range = 200
 [node name="EnemyShooter" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1136, 184 )
 scale = Vector2( 0.25, 0.25 )
+damage_amount = 10
 explode = true
 drop_type = 2
 
