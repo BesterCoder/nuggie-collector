@@ -1,4 +1,4 @@
-extends Area2D
+extends BaseItem
 
 
 enum {
@@ -28,6 +28,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name != "Player":
+		yspeed = 0
 		return
 
 	var success = body.add_ammo(self)
