@@ -4,6 +4,9 @@ Files and their sources and licenses that are not owned by me:
         source: https://github.com/balsamiq/balsamiqsans
         license: SIL Open Font License 1.1 (OFL 1.1)
 
+    assets/fonts/OpenDyslexic-Regular.ttf
+        source: https://www.opendyslexic.org
+        license: SIL Open Font License 1.1 (OFL 1.1)
 
 Rest of the files are owned by me and are licensed the following way:
 
