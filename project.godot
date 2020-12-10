@@ -33,8 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Nuggie-collector"
-run/main_scene="res://levels/level_001.tscn"
+run/main_scene="res://menus/main/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SceneLoader="*res://autoload/SceneLoader.gd"
 
 [display]
 
