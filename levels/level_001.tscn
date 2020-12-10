@@ -53,6 +53,7 @@ position = Vector2( 1256, 184 )
 [node name="EnemySlime2" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 1408, 176 )
 detects_cliffs = false
+drop_type = 3
 
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 504, 352 )
@@ -60,6 +61,7 @@ detects_cliffs = false
 movement_range = 10
 moving = false
 explode = true
+drop_type = 1
 
 [node name="EnemySlime4" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3744, 352 )
@@ -74,6 +76,7 @@ movement_range = 200
 position = Vector2( 1136, 184 )
 scale = Vector2( 0.25, 0.25 )
 explode = true
+drop_type = 2
 
 [node name="EnemyShooter2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3840, 48 )

@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name EnemyBase
 
 enum {DIR_LEFT = -1, DIR_RIGHT = 1, DIR_NONE = 0}
+enum {DROP_NONE = 0, DROP_HEALTH = 1, DROP_RIFLE_AMMO = 2, DROP_SHOTGUN_AMMO = 3}
 
 var speed = 50
 var current_hp = -1
@@ -10,6 +11,7 @@ var velocity = Vector2(0, 0)
 var number_dir = -1
 var moved_amount: float = 0
 var explode_bullet = null
+var drop_item = null
 
 # export makes the variable modifiable in the scene editor
 export var direction = DIR_LEFT
@@ -19,6 +21,7 @@ export var movement_range: int = -1
 export var moving: bool = true
 export var damage_number: PackedScene
 export var explode: bool = false
+export var drop_type: int = DROP_NONE
 
 
 func _explode():
@@ -43,6 +46,11 @@ func hurt():
 	if current_hp == 0:
 		if explode:
 			_explode()
+		if drop_item != null:
+			var item = drop_item.instance()
+			item.initialize(global_position, drop_type)
+			get_tree().current_scene.call_deferred("add_child", item)
+
 		$HealthBar.get_node("ColorRect").rect_size.x = 0
 		queue_free()
 		return
@@ -58,6 +66,16 @@ func _ready():
 
 	if explode:
 		explode_bullet = load("res://characters/weapons/bullet/EnemyBullet.tscn")
+
+	match drop_type:
+		DROP_NONE:
+			drop_item = null
+		DROP_HEALTH:
+			drop_item = load("res://items/health/Health.tscn")
+		DROP_RIFLE_AMMO, DROP_SHOTGUN_AMMO:
+			drop_item = load("res://items/ammo/Ammo.tscn")
+		_:
+			push_error("EnemyBase.gd: Invalid drop_type: %d" % drop_type)
 
 	# Set the floor checker ray to left or right of the collision box
 	# depending on the enemy's direction

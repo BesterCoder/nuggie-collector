@@ -24,6 +24,11 @@ func _ready():
 		_:
 			push_error("Invalid ammo type: " + ammo_type)
 
+func set_ammo_as_rifle():
+	ammo_type = TYPE_RIFLE
+	$RifleSprite.visible = true
+	$ShotgunSprite.visible = false
+	ammo_amount = 5
 
 
 func _on_body_entered(body):
