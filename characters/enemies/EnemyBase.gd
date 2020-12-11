@@ -34,17 +34,17 @@ func _explode():
 		get_tree().current_scene.call_deferred("add_child", new_bullet)
 		_angle += 30
 
-func hurt():
-	current_hp -= 1
+func hurt(damage: int):
+	current_hp -= damage
 
 	var number = damage_number.instance()
 	var startpos = global_position
 	startpos.y -= 20
 	number_dir *= -1
-	number.initialize(startpos, 1, number_dir)
+	number.initialize(startpos, damage, number_dir)
 	get_tree().get_root().call_deferred("add_child", number)
 
-	if current_hp == 0:
+	if current_hp <= 0:
 		if explode:
 			_explode()
 		if drop_item != null:

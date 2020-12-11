@@ -123,7 +123,7 @@ func _halo_location():
 	player_halo.position.x = self.position.x
 
 func _shoot():
-	current_weapon.shoot()
+	current_weapon.shoot(null, Character.get_damage())
 
 func _change_weapon(idx: int):
 	if current_weapon.name == weapons[idx].name:
@@ -143,6 +143,8 @@ func _ready():
 	player_halo = get_tree().get_root().find_node("PlayerGroundHalo", true, false)
 	weapons = [$Pistol, $Rifle, $Shotgun]
 	current_weapon = weapons[0]
+	max_health = Character.get_hp()
+	health = max_health
 
 func _move_player():
 	velocity.y += GRAVITY
