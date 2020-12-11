@@ -10,6 +10,12 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 
+func load_main_menu():
+	load_scene("res://menus/main/MainMenu.tscn")
+
+func load_character_menu():
+	load_scene("res://menus/character/CharacterMenu.tscn")
+
 func load_scene(scene_path: String):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
