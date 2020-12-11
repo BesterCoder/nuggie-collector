@@ -193,3 +193,9 @@ func _on_hurt_timer_timeout():
 	# Restore the color back to normal
 	set_modulate(Color(1, 1, 1, 1))
 	hurting = false
+
+func enter_portal_area():
+	$Interact.visible = true
+
+func exit_portal_area():
+	$Interact.visible = false

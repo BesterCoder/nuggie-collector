@@ -27,3 +27,5 @@ shape = SubResource( 1 )
 position = Vector2( 64, 16 )
 cast_to = Vector2( 0, 250 )
 collision_mask = 2
+[connection signal="body_entered" from="." to="." method="_on_portal_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_portal_body_exited"]

@@ -4,8 +4,10 @@ const GROW_SPEED = 75
 
 var scaley = 1.0
 var target_height = 0
+var finished_building = false
 # Position of the floor
 var collision_point = Vector2(0, 0)
+var entered_body = null
 
 func _ready():
 	$floor_finder.enabled = true
@@ -28,10 +30,16 @@ func _find_floor() -> bool:
 	return true
 
 func _physics_process(delta):
+	if finished_building:
+		return
+
 	if not _find_floor():
 		return
 
 	if $PortalImage.region_rect.size.y == target_height:
+		finished_building = true
+		if entered_body != null:
+			entered_body.enter_portal_area()
 		return
 
 	if $PortalImage.region_rect.size.y < target_height:
@@ -40,3 +48,19 @@ func _physics_process(delta):
 		position.y -= speed
 	else:
 		$PortalImage.region_rect.size.y = target_height
+
+
+func _on_portal_body_entered(body):
+	entered_body = body
+	if $PortalImage.region_rect.size.y != target_height:
+		return
+	if body.name == "Player":
+		body.enter_portal_area()
+
+
+func _on_portal_body_exited(body):
+	entered_body = null
+	if $PortalImage.region_rect.size.y != target_height:
+		return
+	if body.name == "Player":
+		body.exit_portal_area()
