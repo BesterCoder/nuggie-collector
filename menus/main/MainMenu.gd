@@ -2,8 +2,8 @@ extends Control
 
 
 func _on_play_pressed():
-	SceneLoader.load_scene("res://levels/level_001.tscn")
+	SceneLoader.load_scene(Level.get_current_scene())
 
 
 func _on_character_pressed():
-	SceneLoader.load_scene("res://menus/character/CharacterMenu.tscn")
+	SceneLoader.load_character_menu()

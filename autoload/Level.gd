@@ -6,7 +6,7 @@ var __level_list = [
 ]
 
 var __level_count = len(__level_list)
-var __current_level: int = 0
+var __current_level: int = 1
 
 func get_current_level() -> int:
 	return __current_level
