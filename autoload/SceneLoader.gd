@@ -4,11 +4,16 @@ extends Node
 # https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html
 
 var current_scene = null
+var current_scene_path: String = ""
+var previous_scene_path: String = ""
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	current_scene_path = current_scene.filename
 
+func load_previous_scene():
+	load_scene(previous_scene_path)
 
 func load_main_menu():
 	load_scene("res://menus/main/MainMenu.tscn")
@@ -26,6 +31,8 @@ func load_scene(scene_path: String):
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
 
+	previous_scene_path = current_scene_path
+	current_scene_path = scene_path
 	call_deferred("_deferred_load_scene", scene_path)
 
 

@@ -32,4 +32,4 @@ func _on_damage_minus_pressed():
 
 
 func _on_back_pressed():
-	SceneLoader.load_scene("res://menus/main/MainMenu.tscn")
+	SceneLoader.load_previous_scene()
