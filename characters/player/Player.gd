@@ -19,6 +19,7 @@ var weapons = []
 var health = 100
 var max_health = 100
 var hurting = false
+var found_portal = null
 
 # Dealing negative damage heals the player
 # if enemy_posx is not NAN player is knocked back
@@ -162,6 +163,7 @@ func _physics_process(_delta):
 
 	if $Interact.visible and Input.is_action_pressed("interact"):
 		SceneLoader.load_level_complete()
+		found_portal.queue_free()
 
 	if Input.is_action_pressed("move_right"):
 		current_direction = move_dir.MOVE_RIGHT
@@ -197,7 +199,8 @@ func _on_hurt_timer_timeout():
 	set_modulate(Color(1, 1, 1, 1))
 	hurting = false
 
-func enter_portal_area():
+func enter_portal_area(portal):
+	found_portal = portal
 	$Interact.visible = true
 
 func exit_portal_area():

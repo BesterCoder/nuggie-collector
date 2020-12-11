@@ -39,7 +39,7 @@ func _physics_process(delta):
 	if $PortalImage.region_rect.size.y == target_height:
 		finished_building = true
 		if entered_body != null:
-			entered_body.enter_portal_area()
+			entered_body.enter_portal_area(self)
 		return
 
 	if $PortalImage.region_rect.size.y < target_height:
@@ -55,7 +55,7 @@ func _on_portal_body_entered(body):
 	if $PortalImage.region_rect.size.y != target_height:
 		return
 	if body.name == "Player":
-		body.enter_portal_area()
+		body.enter_portal_area(self)
 
 
 func _on_portal_body_exited(body):
