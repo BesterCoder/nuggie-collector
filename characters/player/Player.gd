@@ -160,6 +160,9 @@ func _physics_process(_delta):
 		_move_player()
 		return
 
+	if $Interact.visible and Input.is_action_pressed("interact"):
+		SceneLoader.load_level_complete()
+
 	if Input.is_action_pressed("move_right"):
 		current_direction = move_dir.MOVE_RIGHT
 		_tilt_player(move_dir.MOVE_RIGHT)

@@ -21,6 +21,9 @@ func load_main_menu():
 func load_character_menu():
 	load_scene("res://menus/character/CharacterMenu.tscn")
 
+func load_level_complete():
+	load_scene("res://menus/level/LevelComplete.tscn")
+
 func load_scene(scene_path: String):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
