@@ -22,7 +22,7 @@ export var movement_range: int = -1
 export var moving: bool = true
 export var damage_number: PackedScene
 export var explode: bool = false
-export var drop_type: int = DROP_NONE
+export(int, "None", "Health", "Rifle", "Shotgun") var drop_type: int = DROP_NONE
 
 
 func _explode():
