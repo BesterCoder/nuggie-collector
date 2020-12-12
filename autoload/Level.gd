@@ -3,7 +3,8 @@ extends Node
 
 # [scene_path, is_completed]
 var __level_list = [
-	["res://levels/level_001.tscn", false]
+	["res://levels/level_001.tscn", false],
+	["res://levels/level_002.tscn", false]
 ]
 
 var __level_count = len(__level_list)
