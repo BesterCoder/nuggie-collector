@@ -147,6 +147,11 @@ func _ready():
 	max_health = Character.get_hp()
 	health = max_health
 
+	# Be absolutely sure that there are no porals when player is loaded
+	var tmp_portal = get_tree().get_root().find_node("Portal", true, false)
+	if tmp_portal != null:
+		tmp_portal.queue_free()
+
 func _move_player():
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)
