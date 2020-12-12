@@ -167,6 +167,7 @@ func _physics_process(_delta):
 		return
 
 	if $Interact.visible and Input.is_action_pressed("interact"):
+		Level.level_complete()
 		if Level.in_last_level():
 			SceneLoader.load_game_complete()
 		else:

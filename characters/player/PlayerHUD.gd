@@ -56,7 +56,6 @@ func _on_nuggie_collected(nuggie_position):
 	nuggies_collected += 1
 	_update_nuggie_text()
 	if nuggies_collected == nuggie_count:
-		Level.level_complete()
 		var portal = level_portal.instance()
 		portal.global_position = nuggie_position
 		get_tree().get_root().call_deferred("add_child", portal)
