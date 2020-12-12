@@ -10,6 +10,14 @@ var __damage_points: int = 0
 var __points_left: int = 0
 
 
+func reset():
+	__hp = 100
+	__damage = 1
+	__health_points = 0
+	__damage_points = 0
+	__points_left= 0
+
+
 func get_hp() -> int:
 	return __hp + __HEALTH_STEP * __health_points
 

@@ -7,3 +7,7 @@ func _on_play_pressed():
 
 func _on_character_pressed():
 	SceneLoader.load_character_menu()
+
+
+func _on_levels_pressed():
+	SceneLoader.load_level_menu()

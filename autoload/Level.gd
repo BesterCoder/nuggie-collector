@@ -9,6 +9,13 @@ var __level_list = [
 var __level_count = len(__level_list)
 var __current_level: int = 1
 
+
+func reset():
+	__current_level = 1
+	for level in __level_list:
+		level[1] = false
+
+
 func get_current_level() -> int:
 	return __current_level
 
