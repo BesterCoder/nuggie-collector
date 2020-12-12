@@ -31,7 +31,7 @@ func deal_damage(damage: int, enemy_posx: int = NAN) -> bool:
 
 	health -= damage
 	if health <= 0:
-		queue_free()
+		SceneLoader.load_dead_player()
 	elif health > max_health:
 		health = max_health
 	emit_signal("health_chagned")
