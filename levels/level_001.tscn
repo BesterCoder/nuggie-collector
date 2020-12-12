@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/maps/dark_solid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/background/grey_background.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://items/ammo/Ammo.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/enemies/shooter/EnemyShooter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://items/health/Health.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menus/character/PausePlayer.tscn" type="PackedScene" id=11]
 
 [node name="Level_001" type="Node2D"]
 
@@ -126,3 +127,5 @@ ammo_type = 1
 position = Vector2( 1600, 400 )
 
 [node name="PlayerHUD" parent="." instance=ExtResource( 7 )]
+
+[node name="PausePlayer" parent="." instance=ExtResource( 11 )]
