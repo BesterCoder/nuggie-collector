@@ -162,7 +162,10 @@ func _physics_process(_delta):
 		return
 
 	if $Interact.visible and Input.is_action_pressed("interact"):
-		SceneLoader.load_level_complete()
+		if Level.in_last_level():
+			SceneLoader.load_game_complete()
+		else:
+			SceneLoader.load_level_complete()
 		found_portal.queue_free()
 
 	if Input.is_action_pressed("move_right"):

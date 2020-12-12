@@ -23,6 +23,10 @@ func next_level() -> int:
 	return __current_level
 
 
+func in_last_level() -> bool:
+	return __current_level == len(__level_list)
+
+
 func next_scene() -> String:
 	__current_level += 1
 	return __level_list[__current_level - 1][0]
