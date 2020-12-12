@@ -6,6 +6,19 @@ enum {
 	WEAPON_SHOTGUN = 3
 }
 
+# [DMG, HP]
+const STATS = [
+	[10, 1],
+	[15, 2],
+	[25, 3],
+	[35, 4],
+	[50, 6],
+	[75, 8],
+	[115, 12],
+	[170, 18],
+	[260, 26]
+]
+
 export var weapon_type = 1
 
 var shoot_target = null
@@ -30,6 +43,10 @@ func _weapon_pos():
 	weapon.position.x = $Body.texture.get_width() * direction - offset
 
 func _child_ready():
+	var level = Level.get_current_level()
+	hp_amount = STATS[level - 1][1]
+	current_hp = hp_amount
+	damage_amount = STATS[level - 1][0]
 	$Pistol.visible = false
 	$Rifle.visible = false
 	$Shotgun.visible = false
