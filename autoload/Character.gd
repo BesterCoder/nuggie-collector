@@ -7,7 +7,7 @@ const __HEALTH_STEP: int = 10
 const __DAMAGE_STEP: int = 1
 var __health_points: int = 0
 var __damage_points: int = 0
-var __points_left: int = 5
+var __points_left: int = 0
 
 
 func get_hp() -> int:

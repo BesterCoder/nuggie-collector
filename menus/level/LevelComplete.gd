@@ -1,12 +1,17 @@
 extends Control
 
 
+func _complete_level():
+	Level.set_completed(Level.get_current_level())
+
 func _set_texts():
 	var level: int = Level.get_current_level()
 	var title = "Level %d cleared" % level
 	$Title.text = title
 
-	var new_points = "%d Points added\nSee Characer menu" % level
+	var new_points = ""
+	if not Level.is_comleted(level):
+		new_points = "%d Points added\nSee Characer menu" % level
 	$NewPoints.text = new_points
 
 func _ready():
@@ -18,3 +23,4 @@ func _on_character_pressed():
 
 func _on_menu_pressed():
 	SceneLoader.load_main_menu()
+	_complete_level()
