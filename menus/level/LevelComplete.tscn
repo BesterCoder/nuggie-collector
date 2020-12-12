@@ -144,5 +144,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Buttons/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="Buttons/Menu" to="." method="_on_menu_pressed"]
