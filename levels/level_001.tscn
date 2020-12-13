@@ -81,6 +81,7 @@ scale = Vector2( 0.25, 0.25 )
 damage_amount = 10
 explode = true
 drop_type = 2
+shoot_radius = 2500.0
 
 [node name="EnemyShooter2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3840, 48 )

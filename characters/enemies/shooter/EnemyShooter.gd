@@ -19,7 +19,9 @@ const STATS = [
 	[260, 26]
 ]
 
+export var shoot_radius: float = 2000
 export(int, "None", "Pistol", "Rifle", "Shotgun") var weapon_type: int = WEAPON_PISTOL
+
 
 var shoot_target = null
 var weapon = null
@@ -43,6 +45,8 @@ func _weapon_pos():
 	weapon.position.x = $Body.texture.get_width() * direction - offset
 
 func _child_ready():
+	$PlayerDetector/CollisionShape2D.shape = CircleShape2D.new()
+	$PlayerDetector/CollisionShape2D.shape.set_radius(shoot_radius)
 	var level = Level.get_current_level()
 	hp_amount = STATS[level - 1][1]
 	current_hp = hp_amount

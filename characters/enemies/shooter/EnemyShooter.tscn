@@ -13,7 +13,7 @@
 extents = Vector2( 24, 56 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 992.29
+radius = 2000.0
 
 [node name="EnemyShooter" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
