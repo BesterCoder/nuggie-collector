@@ -53,7 +53,9 @@ func _child_ready():
 	damage_amount = STATS[level - 1][0]
 	$Pistol.visible = false
 	$Rifle.visible = false
+	$Rifle.set_infinite_ammo()
 	$Shotgun.visible = false
+	$Shotgun.set_infinite_ammo()
 
 	match weapon_type:
 		WEAPON_PISTOL:
