@@ -105,7 +105,7 @@ func _tilt_player(dir):
 		move_dir.MOVE_NONE:
 			$Body.rotation_degrees = 0
 
-	$halo_floor.position.x = $Body.texture.get_width() * dir
+	$halo_floor.position.x = $Body.texture.get_width() * self.scale.x * dir
 
 func _halo_location():
 	if is_on_floor():
