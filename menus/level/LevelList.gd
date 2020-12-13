@@ -8,6 +8,7 @@ func _ready():
 func _load_level(level: int):
 	Level.set_level(level)
 	SceneLoader.load_scene(Level.get_current_scene())
+	GameTimer.start_level()
 
 
 func _on_return_pressed():

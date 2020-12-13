@@ -41,6 +41,7 @@ config/icon="res://icon.png"
 Character="*res://autoload/Character.gd"
 SceneLoader="*res://autoload/SceneLoader.gd"
 Level="*res://autoload/Level.gd"
+GameTimer="*res://autoload/GameTimer.gd"
 
 [display]
 

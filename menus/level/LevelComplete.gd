@@ -10,11 +10,17 @@ func _set_texts():
 	$Title.text = title
 
 	var new_points = ""
+	var comlete_time = ""
 	if not Level.is_comleted(level):
 		new_points = "%d Points added\nSee Characer menu" % level
+		var level_time = GameTimer.get_level_time_fmt(level)
+		comlete_time = "Level cleared in\n%s" % level_time
+
+	$Time.text = comlete_time
 	$NewPoints.text = new_points
 
 func _ready():
+	GameTimer.stop_level()
 	_set_texts()
 
 func _on_character_pressed():
@@ -27,5 +33,6 @@ func _on_menu_pressed():
 
 
 func _on_next_pressed():
-	SceneLoader.load_scene(Level.next_scene())
 	_complete_level()
+	SceneLoader.load_scene(Level.next_scene())
+	GameTimer.start_level()

@@ -16,6 +16,8 @@ func load_previous_scene():
 	load_scene(previous_scene_path)
 
 func load_main_menu():
+	GameTimer.pause_level()
+	GameTimer.reset_level()
 	load_scene("res://menus/main/MainMenu.tscn")
 
 func load_character_menu():
