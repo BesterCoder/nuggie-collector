@@ -7,7 +7,7 @@ enum {
 }
 
 # 1: rifle, 2: shotgun
-export var ammo_type = TYPE_SHOTGUN
+export(int, "None", "Rifle", "Shotgun") var ammo_type: int = TYPE_SHOTGUN
 
 var ammo_amount = 0
 
@@ -22,7 +22,7 @@ func _ready():
 			$ShotgunSprite.visible = true
 			ammo_amount = 5
 		_:
-			push_error("Invalid ammo type: " + ammo_type)
+			push_error("Invalid ammo type: %d" % ammo_type)
 
 func set_ammo_as_rifle():
 	ammo_type = TYPE_RIFLE

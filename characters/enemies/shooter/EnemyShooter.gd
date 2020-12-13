@@ -19,7 +19,7 @@ const STATS = [
 	[260, 26]
 ]
 
-export var weapon_type = 1
+export(int, "None", "Pistol", "Rifle", "Shotgun") var weapon_type: int = WEAPON_PISTOL
 
 var shoot_target = null
 var weapon = null
