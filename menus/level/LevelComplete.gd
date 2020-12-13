@@ -28,3 +28,4 @@ func _on_menu_pressed():
 
 func _on_next_pressed():
 	SceneLoader.load_scene(Level.next_scene())
+	_complete_level()
