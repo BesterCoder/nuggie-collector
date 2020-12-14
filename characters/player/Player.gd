@@ -152,6 +152,8 @@ func _ready():
 	if tmp_portal != null:
 		tmp_portal.queue_free()
 
+	$BgLoop.play(0.0)
+
 func _move_player():
 	velocity.y += GRAVITY
 	velocity = move_and_slide(velocity, Vector2.UP)
