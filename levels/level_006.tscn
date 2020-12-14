@@ -13,7 +13,7 @@
 [ext_resource path="res://menus/character/PausePlayer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/maps/DeadZone.tscn" type="PackedScene" id=12]
 
-[node name="Level_001" type="Node2D"]
+[node name="Level_006" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
