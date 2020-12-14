@@ -175,23 +175,6 @@ __meta__ = {
 }
 
 [node name="Level7" type="Button" parent="."]
-margin_left = 40.0
-margin_top = 544.0
-margin_right = 424.0
-margin_bottom = 660.0
-focus_mode = 0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.164706, 0.164706, 0.164706, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-enabled_focus_mode = 0
-text = "Level 7"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level8" type="Button" parent="."]
 margin_left = 448.0
 margin_top = 544.0
 margin_right = 832.0
@@ -202,24 +185,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.164706, 0.164706, 0.164706, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 enabled_focus_mode = 0
-text = "Level 8"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Level9" type="Button" parent="."]
-margin_left = 848.0
-margin_top = 544.0
-margin_right = 1232.0
-margin_bottom = 660.0
-focus_mode = 0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.164706, 0.164706, 0.164706, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-enabled_focus_mode = 0
-text = "Level 9"
+text = "Level 7"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -233,5 +199,3 @@ __meta__ = {
 [connection signal="pressed" from="Level5" to="." method="_on_level5_pressed"]
 [connection signal="pressed" from="Level6" to="." method="_on_level6_pressed"]
 [connection signal="pressed" from="Level7" to="." method="_on_level7_pressed"]
-[connection signal="pressed" from="Level8" to="." method="_on_level8_pressed"]
-[connection signal="pressed" from="Level9" to="." method="_on_level9_pressed"]
