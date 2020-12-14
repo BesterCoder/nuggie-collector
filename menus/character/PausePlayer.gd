@@ -27,3 +27,10 @@ func _on_continue_pressed():
 func _on_menu_pressed():
 	_set_pause()
 	SceneLoader.load_main_menu()
+
+
+func _on_reset_pressed():
+	SceneLoader.load_scene(Level.get_current_scene())
+	GameTimer.reset_level()
+	GameTimer.start_level()
+	_set_pause(false)
