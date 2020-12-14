@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_play_pressed():
-	SceneLoader.load_scene(Level.get_current_scene())
+	SceneLoader.load_scene(Level.next_available_scene())
 	GameTimer.start_level()
 
 

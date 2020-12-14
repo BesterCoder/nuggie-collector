@@ -35,6 +35,17 @@ func next_level() -> int:
 	__current_level += 1
 	return __current_level
 
+func next_available_level() -> int:
+	__current_level = __level_count
+	for idx in range(__level_count):
+		if __level_list[idx][1] == false:
+			__current_level = idx + 1
+			break
+
+	return __current_level
+
+func next_available_scene() -> String:
+	return __level_list[next_available_level() - 1][0]
 
 func in_last_level() -> bool:
 	return __current_level == len(__level_list)
