@@ -60,7 +60,6 @@ current = true
 limit_left = -384
 limit_right = 8896
 limit_bottom = 544
-smoothing_enabled = true
 smoothing_speed = 4.0
 
 [node name="Enemies" type="Node2D" parent="."]
