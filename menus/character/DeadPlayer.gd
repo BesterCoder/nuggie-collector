@@ -13,3 +13,7 @@ func _on_character_pressed():
 
 func _on_menu_pressed():
 	SceneLoader.load_main_menu()
+
+
+func _on_controls_pressed():
+	SceneLoader.load_control_menu()

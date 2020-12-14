@@ -147,3 +147,4 @@ __meta__ = {
 [connection signal="pressed" from="Buttons/Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Buttons/Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="Buttons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Buttons/Controls" to="." method="_on_controls_pressed"]

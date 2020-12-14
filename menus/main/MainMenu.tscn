@@ -108,3 +108,4 @@ __meta__ = {
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]

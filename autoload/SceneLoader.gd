@@ -26,6 +26,9 @@ func load_character_menu():
 func load_level_menu():
 	load_scene("res://menus/level/LevelList.tscn")
 
+func load_control_menu():
+	load_scene("res://menus/character/CharacterControl.tscn")
+
 func load_level_complete():
 	load_scene("res://menus/level/LevelComplete.tscn")
 

@@ -36,3 +36,7 @@ func _on_next_pressed():
 	_complete_level()
 	SceneLoader.load_scene(Level.next_scene())
 	GameTimer.start_level()
+
+
+func _on_controls_pressed():
+	SceneLoader.load_control_menu()

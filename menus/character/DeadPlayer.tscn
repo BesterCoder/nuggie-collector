@@ -108,3 +108,4 @@ __meta__ = {
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Character" to="." method="_on_character_pressed"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]
