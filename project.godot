@@ -118,4 +118,5 @@ pause={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+batching/parameters/max_join_item_commands=64
 environment/default_environment="res://default_env.tres"
