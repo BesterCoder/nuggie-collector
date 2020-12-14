@@ -20,6 +20,10 @@ func _format_time(time: float) -> String:
 
 	return "%02dm:%02ds" % [minutes, seconds]
 
+func reset_times() -> void:
+	for idx in range(len(__level_times)):
+		__level_times[idx] = 0
+
 func is_paused() -> bool:
 	return __level_paused
 

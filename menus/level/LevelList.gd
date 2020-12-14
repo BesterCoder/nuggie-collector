@@ -35,8 +35,8 @@ func _on_return_pressed():
 func _on_reset_progress_pressed():
 	Level.reset()
 	Character.reset()
+	GameTimer.reset_times()
 	_show_levels()
-	# TODO: reset speedrun timer
 
 
 func _on_level1_pressed():
