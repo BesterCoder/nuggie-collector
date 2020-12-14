@@ -8,6 +8,16 @@ Files and their sources and licenses that are not owned by me:
         source: https://www.opendyslexic.org
         license: SIL Open Font License 1.1 (OFL 1.1)
 
+    assets/audio/doorOpen_1.ogg
+        source: https://www.kenney.nl
+        license: Creative Commons Zero, CC0
+                 http://creativecommons.org/publicdomain/zero/1.0/
+
+    assets/audio/map.ogg
+        source: opengameart.org/content/nes-shooter-music-5-tracks-3-jingles
+        license: Creative Commons Zero, CC0
+                 http://creativecommons.org/publicdomain/zero/1.0/
+
 Rest of the files are owned by me and are licensed the following way:
 
 Files whose extension is ".png" use this Creative Commons license:
