@@ -50,10 +50,10 @@ smoothing_speed = 4.0
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="EnemySlime" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 1256, 184 )
+position = Vector2( 1392, 200 )
 
 [node name="EnemySlime2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 1408, 176 )
+position = Vector2( 1192, 208 )
 detects_cliffs = false
 drop_type = 3
 
@@ -74,14 +74,6 @@ detects_cliffs = false
 position = Vector2( 4688, 352 )
 detects_cliffs = false
 movement_range = 200
-
-[node name="EnemyShooter" parent="Enemies" instance=ExtResource( 9 )]
-position = Vector2( 1136, 184 )
-scale = Vector2( 0.25, 0.25 )
-damage_amount = 10
-explode = true
-drop_type = 2
-shoot_radius = 2500.0
 
 [node name="EnemyShooter2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3840, 48 )
@@ -109,7 +101,7 @@ movement_range = 200
 position = Vector2( 856, 408 )
 
 [node name="Nuggie2" parent="Nuggies" instance=ExtResource( 6 )]
-position = Vector2( 1240, 216 )
+position = Vector2( 1336, 160 )
 
 [node name="Nuggie3" parent="Nuggies" instance=ExtResource( 6 )]
 position = Vector2( 7248, 376 )
@@ -117,10 +109,10 @@ position = Vector2( 7248, 376 )
 [node name="Ammo" type="Node2D" parent="."]
 
 [node name="Ammo" parent="Ammo" instance=ExtResource( 8 )]
-position = Vector2( 168, 424 )
+position = Vector2( 5096, 384 )
 
 [node name="Ammo2" parent="Ammo" instance=ExtResource( 8 )]
-position = Vector2( 592, 424 )
+position = Vector2( 5360, 384 )
 ammo_type = 1
 
 [node name="HpHeart" type="Node2D" parent="."]
