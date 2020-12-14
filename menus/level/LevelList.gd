@@ -1,9 +1,26 @@
 extends Control
 
+var _level_buttons = []
 
 func _ready():
-	# TOOD: show only the completed levels
-	pass
+	_level_buttons = [
+		$Level1,
+		$Level2,
+		$Level3,
+		$Level4,
+		$Level5,
+		$Level6,
+		$Level7
+	]
+
+	_show_levels()
+
+func _show_levels():
+	for btn in _level_buttons:
+		btn.visible = false
+
+	for lvl in range(Level.next_available_level()):
+		_level_buttons[lvl].visible = true
 
 func _load_level(level: int):
 	Level.set_level(level)
@@ -18,6 +35,7 @@ func _on_return_pressed():
 func _on_reset_progress_pressed():
 	Level.reset()
 	Character.reset()
+	_show_levels()
 	# TODO: reset speedrun timer
 
 
@@ -47,11 +65,3 @@ func _on_level6_pressed():
 
 func _on_level7_pressed():
 	_load_level(7)
-
-
-func _on_level8_pressed():
-	_load_level(8)
-
-
-func _on_level9_pressed():
-	_load_level(9)
