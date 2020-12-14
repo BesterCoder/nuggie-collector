@@ -7,7 +7,8 @@ var __level_list = [
 	["res://levels/level_002.tscn", false],
 	["res://levels/level_003.tscn", false],
 	["res://levels/level_004.tscn", false],
-	["res://levels/level_005.tscn", false]
+	["res://levels/level_005.tscn", false],
+	["res://levels/level_006.tscn", false]
 ]
 
 var __level_count = len(__level_list)
