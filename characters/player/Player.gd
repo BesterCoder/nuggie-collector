@@ -177,7 +177,8 @@ func _physics_process(_delta):
 		return
 
 	if $Interact.visible and Input.is_action_pressed("interact"):
-		$OpenDoor.play(0.0)
+		if not $OpenDoor.playing:
+			$OpenDoor.play(0.0)
 
 	if Input.is_action_pressed("move_right"):
 		current_direction = move_dir.MOVE_RIGHT
