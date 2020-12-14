@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/player/player_01.png" type="Texture" id=1]
 [ext_resource path="res://characters/weapons/pistol/Pistol.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://characters/weapons/shotgun/Shotgun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/fonts/OpenDyslexic-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/audio/map.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/doorOpen_1.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 88.0
@@ -87,4 +88,9 @@ valign = 1
 [node name="BgLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -10.0
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -4.0
 [connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
+[connection signal="finished" from="OpenDoor" to="." method="_on_openDoor_finished"]

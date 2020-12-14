@@ -160,6 +160,14 @@ func _move_player():
 	# Smoothly stop the character from moving with lerp
 	velocity.x = lerp(velocity.x, 0, 0.2)
 
+func _complete_level():
+	Level.level_complete()
+	if Level.in_last_level():
+		SceneLoader.load_game_complete()
+	else:
+		SceneLoader.load_level_complete()
+	found_portal.queue_free()
+
 func _physics_process(_delta):
 	_weapon_pos()
 	_halo_location()
@@ -169,12 +177,7 @@ func _physics_process(_delta):
 		return
 
 	if $Interact.visible and Input.is_action_pressed("interact"):
-		Level.level_complete()
-		if Level.in_last_level():
-			SceneLoader.load_game_complete()
-		else:
-			SceneLoader.load_level_complete()
-		found_portal.queue_free()
+		$OpenDoor.play(0.0)
 
 	if Input.is_action_pressed("move_right"):
 		current_direction = move_dir.MOVE_RIGHT
@@ -216,3 +219,7 @@ func enter_portal_area(portal):
 
 func exit_portal_area():
 	$Interact.visible = false
+
+
+func _on_openDoor_finished():
+	_complete_level()
