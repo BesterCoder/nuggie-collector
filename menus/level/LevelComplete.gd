@@ -12,7 +12,7 @@ func _set_texts():
 	var new_points = ""
 	var comlete_time = ""
 	if not Level.is_comleted(level):
-		new_points = "%d Points added\nSee Characer menu" % level
+		new_points = "%d Points added\nSee Character menu" % level
 		var level_time = GameTimer.get_level_time_fmt(level)
 		comlete_time = "Level cleared in\n%s" % level_time
 
